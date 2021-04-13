@@ -1,0 +1,10 @@
+.win{
+    font-size: 30px;
+    font-weight: bold;
+}
+.win.green{
+    color: green;
+}
+.win.red{
+    color: red;
+}

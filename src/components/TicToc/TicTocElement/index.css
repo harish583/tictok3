@@ -1,0 +1,16 @@
+.symbol{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #c1c1c1;
+    display: inline-block;
+}
+.TicTocElement{
+    display: inline-block;
+}
+.symbol.green{
+background: green;
+}
+
+.symbol.red{
+    background: red;
+    }

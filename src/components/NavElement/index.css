@@ -1,0 +1,10 @@
+.navelement{
+    padding: 10px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.navelement:hover{
+    color: rgb(165, 104, 12);
+    cursor: pointer;
+}
