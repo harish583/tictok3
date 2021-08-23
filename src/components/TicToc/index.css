@@ -8,3 +8,17 @@
 .win.red{
     color: red;
 }
+.restart{
+    display: inline-block;
+    width: 100px;
+    border: 1px solid;
+    text-align: center;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 10px;;
+}
+.restart:hover{
+    color: white;
+    background: tomato;
+}

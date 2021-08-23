@@ -7,12 +7,12 @@ import NavRoutes from './routes';
 
 class App extends React.Component {
   render(){
-  return (
-    <div className="App">
-      <Navbar />
-      <NavRoutes />
-    </div>
-  );
+    return (
+      <div className="App">
+        <Navbar />
+        <NavRoutes />
+      </div>
+    );
   }
 }
 

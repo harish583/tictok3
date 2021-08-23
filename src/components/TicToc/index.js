@@ -8,7 +8,8 @@ class TicToc extends Component {
         this.state={
             isGreen:true,
             isGameCompleted:false,
-            isGreenwin:false
+            isGreenwin:false,
+            isAllFilled:false
         }
     }
     setColor=()=>{
@@ -49,6 +50,7 @@ class TicToc extends Component {
                 red.push(s);
             }
         }
+       
         var trues = [];
         if(red.length>2 || green.length > 2){
         for(let yy =0 ;yy<TrueCase.length;yy++){
@@ -67,7 +69,20 @@ class TicToc extends Component {
                      console.log("red win");
             }
         }
+        if(!this.state.isGameCompleted && (green.length + red.length) == 9) {this.setState({isAllFilled:true})}
     }
+    };
+    restart=()=>{
+        let nodes = document.getElementsByClassName("TicTocElement");
+        for(let l=0;l<nodes.length;l++){
+            if(nodes[l].classList.length == 3 && nodes[l].classList.contains("green"))
+                 nodes[l].classList.remove("green");
+            if(nodes[l].classList.length == 3 && nodes[l].classList.contains("red"))
+                nodes[l].classList.remove("red");
+        }
+        this.setState({
+            isGameCompleted: false
+        })
     };
     render() {
         return (
@@ -75,7 +90,11 @@ class TicToc extends Component {
                 <TicTocRow row={1} eve={this.setColor} isCompleted={this.checkCompleted} isGameOver={this.state.isGameCompleted}/>
                 <TicTocRow row={2} eve={this.setColor} isCompleted={this.checkCompleted} isGameOver={this.state.isGameCompleted}/>
                 <TicTocRow row={3} eve={this.setColor} isCompleted={this.checkCompleted} isGameOver={this.state.isGameCompleted}/>
+                {!this.state.isGameCompleted ? this.state.isGreen ? <div class="green win">Your Turn</div> : <div class='red win'>Your Turn</div>:""}
+                {/* {!this.state.isGameCompleted && this.state.isGreen ? "":<div class='red win'>Your Turn</div>} */}
                 {this.state.isGameCompleted && this.state.isGreenwin ? <div class='green win'>Green Win</div> : this.state.isGameCompleted && !this.state.isGreenwin ? <div class='red win'>Red Win</div> : ""}
+                {this.state.isAllFilled && <div>It's a Draw</div>}
+                <div className="restart" onClick={this.restart}>Restart</div>
             </>
         )
     }
